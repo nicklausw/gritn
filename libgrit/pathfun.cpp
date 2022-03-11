@@ -765,11 +765,11 @@ bool xp_array_gas(FILE *fp, const char *symname,
 	if(fp == NULL || symname == NULL || data == NULL)
 		return false;
 
-	fputs("\t.section .rodata\n\t.align\t2\n", fp);
+	fputs("\t.section .rodata\n\n\t.align 4\n", fp);
 	// NOTE: no EOL break
-	fprintf(fp, "\t.global %sLen\n\t.hidden %sLen\n\t%sLen:\n.long %d\n\n",
+	fprintf(fp, "\t.global %sLen\n\t.hidden %sLen\n%sLen:\n\t.long %d\n\n",
         symname, symname, symname, ALIGN4(len));
-	fprintf(fp, "\t.global %s\t\t@ %d unsigned chars\n", 
+	fprintf(fp, "\t.align 2\n\t.global %s\t\t@ %d unsigned chars\n", 
 		symname, ALIGN4(len));
 	fprintf(fp, "\t.hidden %s\n%s:", 
 		symname,symname);
