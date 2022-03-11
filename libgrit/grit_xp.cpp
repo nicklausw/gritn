@@ -1034,7 +1034,7 @@ bool xp_array_o(FILE *fp, const char *varname,
 */
 void grit_xp_decl(FILE *fp, int dtype, const char *name, int affix, int len)
 {
-	fprintf(fp, "#define %s%sLen %d\n", name, c_identAffix[affix], len);
+	fprintf(fp, "const unsigned int %s%sLen = %d;\n", name, c_identAffix[affix], len);
 	fprintf(fp, "%s %s %s%s[%d];\n\n", cTypeSpec, cCTypes[dtype], 
 		name, c_identAffix[affix],  ALIGN4(len)/dtype);
 }

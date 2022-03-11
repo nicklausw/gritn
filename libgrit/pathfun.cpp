@@ -767,6 +767,8 @@ bool xp_array_gas(FILE *fp, const char *symname,
 
 	fputs("\t.section .rodata\n\t.align\t2\n", fp);
 	// NOTE: no EOL break
+	fprintf(fp, "\t.global %sLen\n\t.hidden %sLen\n\t%sLen:\n.long %d\n\n",
+        symname, symname, symname, ALIGN4(len));
 	fprintf(fp, "\t.global %s\t\t@ %d unsigned chars\n", 
 		symname, ALIGN4(len));
 	fprintf(fp, "\t.hidden %s\n%s:", 

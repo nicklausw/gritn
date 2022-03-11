@@ -1,7 +1,7 @@
 # Makefile.am -- Process this file with automake to produce Makefile.in
 ACLOCAL_AMFLAGS = -I m4
 
-bin_PROGRAMS = grit
+bin_PROGRAMS = gritn
 
 noinst_LTLIBRARIES      = libcldib.la libgrit.la
 
@@ -19,8 +19,8 @@ libgrit_la_SOURCES	= libgrit/cprs.cpp libgrit/cprs_huff.cpp libgrit/cprs_lz.cpp 
 
 libgrit_la_CPPFLAGS	=	-I$(top_srcdir)/cldib
 
-grit_SOURCES	=	srcgrit/cli.cpp srcgrit/grit_main.cpp srcgrit/cli.h extlib/fi.cpp extlib/fi.h
-grit_LDADD	=	libgrit.la libcldib.la $(FREEIMAGE_LIBS)
-grit_CPPFLAGS	=	-I$(top_srcdir)/cldib -I$(top_srcdir)/libgrit -I$(top_srcdir)/extlib
+gritn_SOURCES	=	srcgrit/cli.cpp srcgrit/grit_main.cpp srcgrit/cli.h extlib/fi.cpp extlib/fi.h
+gritn_LDADD	=	libgrit.la libcldib.la $(FREEIMAGE_LIBS)
+gritn_CPPFLAGS	=	-I$(top_srcdir)/cldib -I$(top_srcdir)/libgrit -I$(top_srcdir)/extlib
 
 EXTRA_DIST = autogen.sh
